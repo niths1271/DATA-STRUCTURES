@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<process.h>
+#define stacksize 5
+int top=-1;
+int s[15];
+int item;
+void push()
+{
+	if(top==(stacksize-1))
+	{
+		printf("STACK OVERFLOW\n");
+          return;
+	  }
+	  top=top+1;
+	  s[top]=item;
+  }
+  int pop()
+  {
+	  if(top==-1)
+	  return -1;
+	 return  s[top--];
+  }
+  void display()
+  {
+	  int i;
+	   if(top==-1)
+	   {
+		   printf("THE STACK IS EMPTY/STACK UNDERFLOW\n");
+		   return;
+	   }
+printf("THE CONTENTS OF THE STACK ARE\n");
+for(i=0;i<=top;i++)
+{
+	printf("%d\n",s[i]);
+}
+}
+void main()
+{
+	int itemdeleted;
+	int c,i;
+	while(i!=4)
+	{
+		printf("1-PUSH 2-POP 3-DISPLAY 4-EXIT\n");
+		printf("ENTER YOUR CHOICE\n");
+		scanf("%d",&c);
+		switch(c)
+		{
+			case 1:
+			       printf("enter the item to be inserted\n");
+			       scanf("%d",&item);
+			       push();
+			       break;
+		    case 2:
+		           itemdeleted=pop();
+		           if(itemdeleted==-1)
+		           printf("STACK IS EMPTY\n");
+		           else
+		           printf("the item deleted is %d\n",itemdeleted);
+		    	   break;
+		    case 3:
+		           display();
+		           break;
+		    case 4:
+		             exit(0);
+		           break;
+		       default:
+		                printf("INVALID CHOICE\n");
+					 }
+				 }
+			 }
+		                
