@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<conio.h>
+#include<process.h>
+void insertrear(int cq[10],int n,int *f,int *r,int *count)
+{
+	if(*count==n)
+	{
+		printf("QUEUE OVERFLOW\n");
+		return;
+	}
+	int item;
+	printf("ENTER THE ITEM TO BE INSERTED\n");
+	scanf("%d",&item);
+	*r=(*r+1)%n;
+	cq[*r]=item;
+	(*count)++;
+}
+void deletefront(int cq[10],int n,int *r,int *f,int *count)
+{
+	if(*count==0)
+	{
+		printf("THE QUEUE IS EMPTY\n");
+	}
+	else
+	{
+	printf("THE ITEM DELETED IS =%d\n",cq[*f]);
+	*f=(*f+1)%n;
+}
+      (*count)--;
+}
+void display(int cq[10],int n,int *r,int *f,int *count)
+{
+	int i;
+	if(*count==0)
+	{
+		printf("THE QUEUE IS EMPTY\n");
+		return;
+	}
+	else
+	{
+    printf("THE CONTENTS OF THE QUEUE IS=  ");
+    for(i=1;i<=*count;i++)
+    {
+		printf("%d\t",cq[*f]);
+		*f=(*f+1)%n;
+	}
+	printf("\n");
+}
+}
+int main()
+{
+	int c,i;
+	int count=0;
+	int r=-1;
+	int f=0;
+	int n;
+	int cq[10];
+	printf("ENTER THE SIZE OF QUEUE\n");
+	scanf("%d",&n);
+	while(i!=4)
+	{
+		printf("1-INSERT  2-DELETE  3-DISPLAY 4-EXIT\n");
+		printf("ENTER THE CHOICE\n");
+		scanf("%d",&c);
+		switch(c)
+		{
+			case 1:
+			        insertrear(cq,n,&f,&r,&count);
+			        break;
+			case 2:
+			        deletefront(cq,n,&r,&f,&count);
+			        break;
+		    case 3:
+			        display(cq,n,&r,&f,&count);
+			        break;
+			case 4:
+			        exit(0);
+		  default:
+			        printf("INVALID CHOICE");
+				}
+			}
+		}
+		
