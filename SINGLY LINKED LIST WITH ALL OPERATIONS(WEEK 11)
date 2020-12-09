@@ -245,10 +245,11 @@ int main()
 {
 	int c,item,pos;
 	int n,i;
+	int choice;
 	NODE first=NULL,sec,fir;
 	for(;;)
 	{
-		printf("1-INSERTFRONT \n 2-INSERTREAR \n 3-INSERT AT GIVEN POSITION \n 4-DELETEFRONT \n 5-DELETEREAR \n 6-DELETEPOS \n 7-CONCATENATION \n 8-REVERSING\n 9-SORTING 10-DISPLAY 11-EXIT\n");
+		printf("1-INSERTFRONT \n 2-INSERTREAR \n 3-INSERT AT GIVEN POSITION \n 4-DELETEFRONT \n 5-DELETEREAR \n 6-DELETEPOS \n 7-CONCATENATION \n 8-REVERSING\n 9-SORTING \n 10-STACK \n 11-QUEUE 12-DISPLAY \n 13-EXIT");
 		printf("ENTER THE CHOICE\n");
 		scanf("%d",&c);
 		switch(c)
@@ -310,11 +311,54 @@ int main()
 			case 9:
 			first=sort(first);
 			display(first);
-			break;							
-            case 10:
+			break;	
+			case 10:
+			printf("Stack\n");
+      for(;;)
+      {
+        printf("\n 1:Insert_rear\n 2:Delete_rear\n 3:Display_list\n 4:Exit\n");
+        printf("Enter the choice\n");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+        case 1:printf("Enter the item at rear-end\n");
+            scanf("%d",&item);
+            first=insertrear(first,item);
+            break;
+        case 2:first=deleterear(first);
+            break;
+        case 3:display(first);
+            break;
+        default:exit(0);
+      }
+  }
+          break;
+          case 11:
+          printf("QUEUE\n");
+        for(;;)
+        {
+            printf("\n 1:Insert_rear\n 2:Delete_front\n 3:Display_list\n 4:Exit\n");
+            printf("Enter the choice\n");
+            scanf("%d",&choice);
+            switch(choice)
+            { 
+            case 1:printf("Enter the item at rear-end\n");
+                    scanf("%d",&item);
+                    first=insertrear(first,item);
+                    break;
+            case 2:first=deletefront(first);
+                    break;
+            case 3:display(first);
+                    break;
+            default:exit(0);
+                    break;
+            }
+        }
+        break;   						
+            case 12:
             display(first);
             break;
-            case 11:
+            case 13:
              exit(0);
          default:
          printf("INVALID CHOICE\n");
@@ -324,3 +368,6 @@ int main()
 
 
 
+
+	
+	
